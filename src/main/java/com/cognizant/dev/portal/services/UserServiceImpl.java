@@ -70,7 +70,7 @@ public class UserServiceImpl implements UserService {
 				u.getFirstName(), u.getEmail(), u.getUserId()));
 	}
 	
-	public List<Users> list() {		// Get all Users (Works)
+	public List<Users> list() {		
 		return usersRepository.findAll();
 	}
 	

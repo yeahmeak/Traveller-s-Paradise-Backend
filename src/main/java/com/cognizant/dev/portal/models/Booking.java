@@ -31,7 +31,69 @@ public class Booking {
 	@OneToOne
 	private Inventory inventory;
 	
+	private String firstName;
 	
+	private String lastName;
+	
+//	private String email;
+	
+	private String phoneNumber;
+	
+	private Long invoiceNumber;
+	
+	
+	
+	
+	public String getFirstName() {
+		return firstName;
+	}
+
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+
+	public String getLastName() {
+		return lastName;
+	}
+
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+
+//	public String getEmail() {
+//		return email;
+//	}
+
+
+//	public void setEmail(String email) {
+//		this.email = email;
+//	}
+
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+
+	public Long getInvoiceNumber() {
+		return invoiceNumber;
+	}
+
+
+	public void setInvoiceNumber(Long invoiceNumber) {
+		this.invoiceNumber = invoiceNumber;
+	}
+
+
 	public Long getBookingId() {
 		return bookingId;
 	}
@@ -100,12 +162,12 @@ public class Booking {
 
 
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	@Column (name = "start_date")
+	@Column (name = "checkIn")
 	private LocalDate  checkIn;
 	
 	
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	@Column (name = "end_date")
+	@Column (name = "checkOut")
 	private LocalDate checkOut;
 	
 	
@@ -123,13 +185,18 @@ public class Booking {
 
 
 	public Booking(Inventory inventory, LocalDate checkIn, LocalDate checkOut, Long totalPrice,
-			Users user) {
+			Users user, String firstName, String lastName,  Long invoiceNumber, String phoneNumber) {
 		super();
 		this.inventory = inventory;
 		this.checkIn = checkIn;
 		this.checkOut = checkOut;
 		this.totalPrice = totalPrice;
 		this.user = user;
+		this.firstName = firstName;
+		this.lastName = lastName;
+//		this.email = email;
+		this.invoiceNumber = invoiceNumber;
+		this.phoneNumber = phoneNumber;
 	}
 	
 	public Booking() {

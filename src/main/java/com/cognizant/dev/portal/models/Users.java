@@ -34,14 +34,21 @@ public class Users {
 	
 	@Column (name = "first_name", length = 50)
 	private String firstName;
+	
 	@Column (name = "last_name", length = 50)
 	private String lastName;
 	
 
-	@Column (name = "telephone", length = 15)
-	private String telephone;
+	@Column (name = "contact", length = 15)
+	private String contact;
+	
+	@Column (name = "gender", length = 7)
+	private String gender;
 	
 	
+	
+
+
 	/*@JsonManagedReference*/
 	@OneToMany (cascade = CascadeType.ALL,  orphanRemoval = true, fetch = FetchType.LAZY)
 	Set<Booking> listOfBookings;
@@ -101,13 +108,21 @@ public class Users {
 	}
 
 
-	public String getTelephone() {
-		return telephone;
+	public String getContact() {
+		return contact;
 	}
 
 
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
+	
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 
@@ -124,24 +139,25 @@ public class Users {
 	}
 
 
-	public Users(long userId, String password, String email, String firstName, String lastName, String telephone) {
+	public Users(long userId, String password, String email, String firstName, String lastName, String contact, String gender) {
 		super();
 		this.userId = userId;
 		this.password = password;
 		this.email = email;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.telephone = telephone;
+		this.contact = contact;
+		this.gender = gender;
 	}
 
 
 	@Override
 	public String toString() {
 		return "Users [userId=" + userId + ", password=" + password + ", email=" + email + ", firstName=" + firstName
-				+ ", lastName=" + lastName + ", telephone=" + telephone + ", listOfBookings=" + listOfBookings
+				+ ", lastName=" + lastName + ", telephone=" + contact + ", listOfBookings=" + listOfBookings
 				+ ", getUserId()=" + getUserId() + ", getPassword()=" + getPassword() + ", getEmail()=" + getEmail()
-				+ ", getFirstName()=" + getFirstName() + ", getLastName()=" + getLastName() + ", getTelephone()="
-				+ getTelephone() +  ", getClass()=" + getClass()
+				+ ", getFirstName()=" + getFirstName() + ", getGender()=" + getGender() + ", getLastName()=" + getLastName() + ", getTelephone()="
+				+ getContact() +  ", getClass()=" + getClass()
 				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
 	

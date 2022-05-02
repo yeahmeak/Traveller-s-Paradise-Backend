@@ -1,6 +1,7 @@
 package com.cognizant.dev.portal.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -20,6 +21,9 @@ import com.cognizant.dev.portal.services.CustomUserDetailsService;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
+	
+	 @Value("${spring.h2.console.path}")
+	  private String h2ConsolePath;
 	
 	@Autowired
 	private CustomUserDetailsService customUserDetailsService;
@@ -49,6 +53,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 		.authorizeRequests()
 		.antMatchers("/user").permitAll()
 		.antMatchers("/user/login").permitAll()
+		.antMatchers(h2ConsolePath + "/**").permitAll()
 		.anyRequest().authenticated()
 		.and()
 		.exceptionHandling()
@@ -58,6 +63,8 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 		;
 		
 		http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+//		http.headers().frameOptions().sameOrigin();
+		
 		
 	}	
 }

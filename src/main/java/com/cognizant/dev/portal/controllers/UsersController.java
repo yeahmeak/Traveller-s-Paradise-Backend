@@ -23,7 +23,7 @@ import com.cognizant.dev.portal.services.BookingService;
 import com.cognizant.dev.portal.services.UserService;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000", allowedHeaders = "*")
 @RequestMapping("/user")
 public class UsersController {
 	
