@@ -35,7 +35,7 @@ public class Booking {
 	
 	private String lastName;
 	
-//	private String email;
+	private String email;
 	
 	private String phoneNumber;
 	
@@ -64,14 +64,14 @@ public class Booking {
 	}
 
 
-//	public String getEmail() {
-//		return email;
-//	}
+	public String getEmail() {
+		return email;
+	}
 
 
-//	public void setEmail(String email) {
-//		this.email = email;
-//	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 
 	public String getPhoneNumber() {
@@ -185,7 +185,7 @@ public class Booking {
 
 
 	public Booking(Inventory inventory, LocalDate checkIn, LocalDate checkOut, Long totalPrice,
-			Users user, String firstName, String lastName,  Long invoiceNumber, String phoneNumber) {
+			Users user, String firstName, String lastName, String email, Long invoiceNumber, String phoneNumber) {
 		super();
 		this.inventory = inventory;
 		this.checkIn = checkIn;
@@ -194,7 +194,7 @@ public class Booking {
 		this.user = user;
 		this.firstName = firstName;
 		this.lastName = lastName;
-//		this.email = email;
+		this.email = email;
 		this.invoiceNumber = invoiceNumber;
 		this.phoneNumber = phoneNumber;
 	}

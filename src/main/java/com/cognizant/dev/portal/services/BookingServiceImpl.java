@@ -21,7 +21,7 @@ public class BookingServiceImpl implements BookingService {
 	}
 	
 	public Booking getBookingById(long bid) {	
-		Booking t = bookingRepository.getOne(bid);
+		Booking t = bookingRepository.findById(bid).get();
 		return t;
 	}
 
