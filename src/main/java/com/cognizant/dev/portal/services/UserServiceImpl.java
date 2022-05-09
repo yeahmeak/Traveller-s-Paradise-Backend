@@ -57,7 +57,7 @@ public class UserServiceImpl implements UserService {
             );
         } catch (BadCredentialsException ex) {
         	System.out.println("bad credentials"+ex.getStackTrace());
-        	return ResponseEntity.ok(new ErrorResponse("No Such User"));
+        	return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ErrorResponse("Invalid Credentials"));
         } catch (Exception e) {
         	System.out.println(e);
         	return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ErrorResponse("Invalid Credentials"));
